@@ -103,269 +103,117 @@ export default function form() {
 
     };
 
-
     return (
         <div className='center'>
 
-            <form className='grid-container' onSubmit={submitHandler} >
-                <div className='grid-item' id='grid-1'><h3>Passport/Visa/National ID Details</h3></div>
+            <div>
+                <h3 className='heading'>Passport/Vissa Details</h3>
+                <form className='flex-container' onSubmit={submitHandler}>
 
-                <div className='grid-item' id='grid-2'>
-                    <div className='grid-container-1'>
-                        <div className='grid-item-1' id='grid-1-1'>
-                            <p>Passport Number</p>
-                        </div>
-                        <div className='grid-item-1'>
-                            <input type='text' placeholder='CZ0847662' id='grid-1-2' onChange={passportNumberChangeHandler} value={enteredPNumber} />
-                        </div>
+                    <div className='flex-item'>
+                        <p className='flex-item-field'>Passport Number</p>
+                        <input className='flex-item-field' type='text' placeholder='CZ0847662' id='grid-1-2' onChange={passportNumberChangeHandler} value={enteredPNumber} />
                     </div>
-                </div>
 
-                <div className='grid-item' id='grid-3'>
-                    <div className='grid-container-1'>
-                        <div className='grid-item-1' id='grid-1-1'>
-                            <p>Passport Issue Place</p>
-                        </div>
-                        <div className='grid-item-1'>
-                            <input type='text' placeholder='Pakistan' id='grid-1-2' onChange={passportIssuePlaceChangeHandler} value={enteredPIssuePlace} />
-                        </div>
+                    <div className='flex-item'>
+                        <div className='flex-item-field'>Passport Issue Place</div>
+                        <input className='flex-item-field' type='text' placeholder='Pakistan' id='grid-1-2' onChange={passportIssuePlaceChangeHandler} value={enteredPIssuePlace} />
                     </div>
-                </div>
 
-                <div className='grid-item' id='grid-4'>
-                    <div className='grid-container-1'>
-                        <div className='grid-item-1' id='grid-1-1'>
-                            <p>Passport Issue Date</p>
-                        </div>
-                        <div className='grid-item-1'>
-                            <input type='date' placeholder='04/Apr/2017' id='grid-1-2' onChange={passportIssueDateChangeHandler} value={enteredPIssueDate} />
-                        </div>
+                    <div className='flex-item'>
+                        <p className='flex-item-field'>Passport Issue Date</p>
+                        <input className='flex-item-field' type='date' placeholder='04/Apr/2017' id='grid-1-2' onChange={passportIssueDateChangeHandler} value={enteredPIssueDate} />
                     </div>
-                </div>
 
-                <div className='grid-item' id='grid-5'>
-                    <div className='grid-container-1'>
-                        <div className='grid-item-1' id='grid-1-1'>
-                            <p>Passport Expiry Date</p>
-                        </div>
-                        <div className='grid-item-1'>
-                            <input type='date' id='grid-1-2' onChange={passportExpiryChangeHandler} value={enteredPExpiryDate} />
-                        </div>
+                    <div className='flex-item'>
+                        <div className='flex-item-field'>Passport Expiry Date 4</div>
+                        <input className='flex-item-field' type='date' id='grid-1-2' onChange={passportExpiryChangeHandler} value={enteredPExpiryDate} />
                     </div>
-                </div>
 
-                <div className='grid-item' id='grid-6'>
-                    <div className='grid-container-1'>
-                        <div className='grid-item-1' id='grid-1-1'>
-                            <p>Vissa Number</p>
-                        </div>
-                        <div className='grid-item-1'>
-                            <input type='nic' pattern="[0-9]{5}-[0-9]{7}-[0-9]{1}" placeholder='xxxxx-xxxxxxx-x' id='grid-1-2' onChange={visaNumberChangeHandler} value={enteredVNumber} />
-                        </div>
+                    <div className='flex-item'>
+                        <p className='flex-item-field'>Vissa Number</p>
+                        <input className='flex-item-field' type='nic' pattern="[0-9]{5}-[0-9]{7}-[0-9]{1}" placeholder='xxxxx-xxxxxxx-x' id='grid-1-2' onChange={visaNumberChangeHandler} value={enteredVNumber} />
                     </div>
-                </div>
 
-                <div className='grid-item' id='grid-7'>
-                    <div className='grid-container-1'>
-                        <div className='grid-item-1' id='grid-1-1'>
-                            <p>Vissa Issue Place</p>
-                        </div>
-                        <div className='grid-item-1'>
-                            <input type='text' placeholder='UAE' id='grid-1-2' onChange={vissaIssuePlaceChangeHandler} value={enteredVIssuePlace} />
-                        </div>
+                    <div className='flex-item'>
+                        <div className='flex-item-field'>Vissa Issue Place</div>
+                        <input className='flex-item-field' type='text' placeholder='UAE' id='grid-1-2' onChange={vissaIssuePlaceChangeHandler} value={enteredVIssuePlace} />
                     </div>
-                </div>
 
-                <div className='grid-item' id='grid-8'>
-                    <div className='grid-container-1'>
-                        <div className='grid-item-1' id='grid-1-1'>
-                            <p>Vissa Issue Date</p>
-                        </div>
-                        <div className='grid-item-1'>
-                            <input type='date' id='grid-1-2' onChange={vissaIssueDateChangeHandler} value={enteredVIssueDate} />
-                        </div>
+                    <div className='flex-item'>
+                        <p className='flex-item-field'>Vissa Issue Date</p>
+                        <input className='flex-item-field' type='date' id='grid-1-2' onChange={vissaIssueDateChangeHandler} value={enteredVIssueDate} />
                     </div>
-                </div>
 
-                <div className='grid-item' id='grid-9'>
-                    <div className='grid-container-1'>
-                        <div className='grid-item-1' id='grid-1-1'>
-                            <p>Vissa Expiry Date</p>
-                        </div>
-                        <div className='grid-item-1'>
-                            <input type='date' id='grid-1-2' onChange={vissaExpiryDateChangeHandler} value={enteredVExpiryDate} />
-                        </div>
+                    <div className='flex-item'>
+                        <div className='flex-item-field'>Vissa Expiry Date</div>
+                        <input className='flex-item-field' type='date' id='grid-1-2' onChange={vissaExpiryDateChangeHandler} value={enteredVExpiryDate} />
                     </div>
-                </div>
 
-                <div className='grid-item' id='grid-10'>
-                    <div className='grid-container-1'>
-                        <div className='grid-item-1' id='grid-1-1'>
-                            <p>Nationa ID Number</p>
-                        </div>
-                        <div className='grid-item-1'>
-                            <input type='nic' placeholder='xxxxx-xxxxxxx-x' pattern="[0-9]{5}-[0-9]{7}-[0-9]{1}" id='grid-1-2' onChange={nicNumberChangeHandler} value={enteredNIDNumber} />
-                        </div>
+                    <div className='flex-item'>
+                        <p className='flex-item-field'>National ID Number</p>
+                        <input className='flex-item-field' type='nic' placeholder='xxxxx-xxxxxxx-x' pattern="[0-9]{5}-[0-9]{7}-[0-9]{1}" id='grid-1-2' onChange={nicNumberChangeHandler} value={enteredNIDNumber} />
                     </div>
-                </div>
 
-                <div className='grid-item' id='grid-11'>
-                    <div className='grid-container-1'>
-                        <div className='grid-item-1' id='grid-1-1'>
-                            <p>National ID Expiry Date</p>
-                        </div>
-                        <div className='grid-item-1'>
-                            <input type='date' id='grid-1-2' onChange={nicExpiryChangeHandler} value={enteredIDExpiryDate} />
-                        </div>
+                    <div className='flex-item'>
+                        <div className='flex-item-field'>National ID Expiry Date</div>
+                        <input className='flex-item-field' type='date' id='grid-1-2' onChange={nicExpiryChangeHandler} value={enteredIDExpiryDate} />
                     </div>
-                </div>
 
-                <div className='grid-item' id='grid-12'>
-                    <div className='grid-container-1'>
-                        <div className='grid-item-1' id='grid-1-1'>
-                            <p>Issuing Authority</p>
-                        </div>
-                        <div className='grid-item-1'>
-                            <input type='text' id='grid-1-2' onChange={issuingAuthChangeHandler} value={enteredIAuthority} />
-                        </div>
+                    <div className='flex-item'>
+                        <p className='flex-item-field'>Issuing Authority</p>
+                        <input className='flex-item-field' type='text' id='grid-1-2' onChange={issuingAuthChangeHandler} value={enteredIAuthority} />
                     </div>
-                </div>
 
-                <button className='submit__actions' type='submit'>Add Expense</button>
-            </form>
+                    <button type="submit" className="btn btn-secondary" id='button'>Submit Form</button>
+
+                </form>
+            </div>
 
 
             <style jsx>{`
-        .center{
-            grid-gap: 10px;
-            grid-template-columns: repeat(auto-fill, 136px);
-            justify-content: center;
-            margin: 10px;
-            display: grid;
-            grid-template-areas: 
-            'mainGrid mainGrid mainGrid mainGrid mainGrid mainGrid';
-          }
-          .grid-container{
-            display: grid;
-            grid-gap: 10px;
-            grid-template-columns: repeat(auto-fill, 136px);
-            grid-template-areas: 
-            'passport passport passport passport passport passport'
-            'passportNumber passportNumber passportNumber passportIssueDate passportIssueDate passportIssueDate'
-            'visaNumber visaNumber visaNumber visaIssueDate visaIssueDate visaIssueDate'
-            'issuingAuthority issuingAuthority issuingAuthority nic nic nic'
-            'passportIssuePlace passportIssuePlace passportIssuePlace passportExpiryDate passportExpiryDate passportExpiryDate'
-            'vissaIssuePlace vissaIssuePlace vissaIssuePlace visaExpiryDate visaExpiryDate visaExpiryDate'
-            'nicExpiryDate nicExpiryDate nicExpiryDate nicExpiryDate nicExpiryDate nicExpiryDate'; 
-          }
-          .grid-container-1{
-            grid-gap: 10px;
-            grid-template-columns: repeat(auto-fill, 50px);
-            display: grid;
-            grid-template-areas: 
-            'heading heading input input input input'; 
-          }
-          .grid-item{
-            border: 1px solid black;
-            padding: 5px;
-            text-align: start;
-            border-radius: 10px;
-          }
-          
-          .grid-item-1{
-            grid-gap: 10px;
-            grid-template-columns: repeat(auto-fill, 896px);
-          }
-          
-          #grid-1{
-            grid-area: passport;
-            background-color: blue;
-            border-radius: 10px;
-            margin-bottom: 5px;
-          }
-          
-          #grid-1 h3{
-            grid-gap: 10px;
-            grid-template-columns: repeat(auto-fill, 186px);
-            padding: 3px;
-            margin-top: 10px;
-            color: white;
-          }
-          
-          #grid-2{
-            grid-gap: 10px;
-            grid-template-columns: repeat(auto-fill, 186px);
-            grid-area: passportNumber;
-          }  
-          
-          #grid-3{
-            grid-area: passportIssueDate;
-          }
-          
-          #grid-4{
-            grid-area: visaNumber;
-          }
-          
-          #grid-5{
-            grid-area: visaIssueDate;
-          }
-          
-          #grid-6{
-            grid-area: issuingAuthority;
-          }
-          
-          #grid-7{
-            grid-area: nic;
-          }
-          
-          #grid-8{
-            grid-area: passportIssuePlace;
-          }
-          
-          #grid-9{
-            grid-area: passportExpiryDate;
-          }
-          
-          #grid-10{
-            grid-area: vissaIssuePlace;
-          }
-          
-          #grid-11{
-            grid-area: visaExpiryDate;
-          }
-          
-          #grid-12{
-            grid-area: nicExpiryDate;
-          }
-          
-          #grid-1-1{
-            grid-gap: 10px;
-            grid-template-columns: repeat(auto-fill, 186px);
-            grid-area: heading;
-            border-radius: 20px;
-          }
-          
-          #grid-1-1  p{
-            grid-gap: 10px;
-            grid-template-columns: repeat(auto-fill, 186px);
-            padding: 10px;
-            text-align: center;
-            margin-top: 10px;
-          }
-          
-          #grid-1-2{
-            grid-gap: 10px;
-            grid-template-columns: repeat(auto-fill, 186px);
-            grid-area: input;
-            padding: 10px;
-            border-radius: 20px;
-            margin-top: 12px;
-          }
-          
-          .submit__actions{
-            text-align: left;
-            padding-left: 25px;
-          }
+
+.flex-container{
+    border: 1px solid black;
+    margin: 10px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    /* width: 800px; */
+  }
+  
+  .flex-item{
+    /* background-color: blue; */
+    border: 1px solid black;
+    border-radius: 15px;
+    margin: 6px;
+    padding: 5px;
+    width: 780px;
+    /* text-align: center; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .flex-item-field{
+    /* background-color: pink; */
+    border:1px solid black ;
+    margin: 10px;
+    padding: 10px;
+    width: 194px;
+    margin: 10px;
+  }
+  
+  #button{
+    padding-left: 9px;
+    margin: 8px;
+  }
+  
+  .heading{
+    background-color: blue;
+    margin: 10px;
+    text-decoration-color: aliceblue;
+  }
                     
       `}</style>
 
