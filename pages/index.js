@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import ApointmentCard from '../components/ApointmentCard';
 
 export default function Home() {
 
@@ -6,6 +7,7 @@ export default function Home() {
 
   return (
     <div className="container">
+      <ApointmentCard></ApointmentCard>
       <Head>
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
