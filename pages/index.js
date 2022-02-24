@@ -1,4 +1,5 @@
-import Head from 'next/head'
+import Head from "next/head";
+import LocationForm from "../components/LocationForm";
 
 export default function Home() {
   return (
@@ -9,7 +10,7 @@ export default function Home() {
       </Head>
 
       <main>
-        <div className="tableContainer">
+        {/* <div className="tableContainer">
           <table>
             <thead>
               <tr>
@@ -36,31 +37,29 @@ export default function Home() {
               </tr>
             </tbody>
           </table>
-        </div>
-      </main >
+        </div> */}
+        <LocationForm />
+      </main>
 
       <style jsx>{`
-
         .tableContainer {
-          display: flex; 
+          display: flex;
           margin: 5%;
           justify-content: center;
           padding: 5px;
         }
 
-        table{
+        table {
           width: 40%;
           text-align: left;
           padding: 6px;
           border: 1px solid black;
-          border-collapse: collapse
-
+          border-collapse: collapse;
         }
 
-        thead{
+        thead {
           border: 1px solid black;
         }
-
       `}</style>
 
       <style jsx global>{`
@@ -77,6 +76,6 @@ export default function Home() {
           box-sizing: border-box;
         }
       `}</style>
-    </div >
-  )
+    </div>
+  );
 }
