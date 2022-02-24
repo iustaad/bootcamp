@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import LocationForm from '../components/LocationForm'
 
 export default function Home() {
   return (
@@ -38,7 +37,6 @@ export default function Home() {
             </tbody>
           </table>
         </div>
-        <LocationForm />
       </main >
 
       <style jsx>{`
