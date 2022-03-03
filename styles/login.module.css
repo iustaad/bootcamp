@@ -1,0 +1,31 @@
+.main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.card{
+    display: flex;
+    box-shadow: grey 3px 2px 51px -15px;
+    align-items: center;
+    align-content: space-around;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 30%;
+    height: 30%;
+}
+
+.userName{
+    margin: 15px 10px;
+}
+
+.password{
+    margin: 0px 21px;
+}
+
+.loginButton{
+    margin-top: 15px;
+    margin-left: 86px;
+}
