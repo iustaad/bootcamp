@@ -1,25 +1,31 @@
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
-.textField {
-  width: 100%;
-  padding: 10px 15px;
-  margin: 5px 0;
-  box-sizing: border-box;
+.card{
+    display: flex;
+    box-shadow: grey 3px 2px 51px -15px;
+    align-items: center;
+    align-content: space-around;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 30%;
+    height: 30%;
 }
 
-.textField:focus {
-  border: 3px solid rgb(151, 151, 151);
+.userName{
+    margin: 15px 10px;
 }
 
-.button {
-  margin-top: 10px;
-  background-color: #4caf50; /* Green */
-  border: none;
-  color: white;
-  padding: 10px 15px;
-  cursor: pointer;
+.password{
+    margin: 0px 21px;
+}
+
+.loginButton{
+    margin-top: 15px;
+    margin-left: 86px;
 }

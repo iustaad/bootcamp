@@ -1,35 +1,37 @@
+//formik used to create forms
 import { Formik, Form } from "formik";
-import { TextFields } from "../components/TextFields";
+//Yup is used for form validation
 import * as Yup from "yup";
-import moodleService from "../services/moodleService";
-import styles from "../styles/Login.module.css";
+//moodle service used for handel HTTP request
+import moodleService from "../Services/moodleService";
+//TextField component is used for generate input fields
+import { TextField } from "../components/TextField";
+// styles used for styling of this component
+import styles from "../styles/login.module.css";
 
-const login = () => {
-  const token = "";
-
+export default function Login() {
   const validate = Yup.object({
-    username: Yup.string().required("Required"),
-    password: Yup.string().required("Required"),
+    username: Yup.string(),
+    password: Yup.string(),
   });
 
-  const credentials = async (values) => {
-    let username = values.username;
-    let password = values.password;
-
+  const loginUsr = async (values) => {
     try {
-      const response = await moodleService.credentials(username, password);
-      sessionStorage.setItem("token", response.data.token);
-      token = response.data.token;
+      const response = await moodleService.login(values);
+      // console.log(response.data.token);
+      localStorage.setItem("token", response.data.token);
     } catch (err) {
       console.log(err);
     }
-    getAllEnrolledUsers(token);
   };
 
-  const getAllEnrolledUsers = async () => {
+  const getEnrolledUser = async () => {
+    // const userToken = localStorage.getItem("token");
     try {
-      const response = await moodleService.getAllEnrolledUsers(token);
-      console.log(response.data);
+      const response = await moodleService.enrolledUser();
+      console.log(response.data[0]);
+      console.log(response.data[1]);
+      console.log(response.data[2]);
     } catch (err) {
       console.log(err);
     }
@@ -43,33 +45,37 @@ const login = () => {
       }}
       validationSchema={validate}
       onSubmit={(values) => {
-        credentials(values);
+        loginUsr(values);
+        getEnrolledUser();
       }}
     >
       {(formik) => (
-        <div className={styles.container}>
-          <h1>Login</h1>
-          <Form>
-            <TextFields
-              className={styles.textField}
-              label="Username:"
-              name="username"
-              type="username"
-            />
-            <TextFields
-              className={styles.textField}
-              label="Password:   "
-              name="password"
-              type="password"
-            />
-            <button className={styles.button} type="submit">
-              Login
-            </button>
-          </Form>
+        <div className={styles.main}>
+          <div className={styles.card}>
+            <div className={styles.form}>
+              <h1>Moodle Login</h1>
+              <Form>
+                <TextField
+                  className={styles.userName}
+                  label="User Name"
+                  name="username"
+                  type="text"
+                />
+                <TextField
+                  className={styles.password}
+                  label="Password"
+                  name="password"
+                  type="password"
+                />
+
+                <button className={styles.loginButton} type="submit">
+                  Login
+                </button>
+              </Form>
+            </div>
+          </div>
         </div>
       )}
     </Formik>
   );
-};
-
-export default login;
+}

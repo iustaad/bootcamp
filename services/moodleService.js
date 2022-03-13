@@ -1,19 +1,21 @@
+// axios used for HTTP request
 import axios from "axios";
 
-const baseURL = "https://staging.iustaad.com/";
+const moodleURL = "http://localhost";
 
 class moodleService {
-
-  credentials(username, password) {
-
+  login(credentials) {
     return axios.post(
-      `${baseURL}login/token.php?username=${username}&password=${password}&service=moodle_mobile_app`
+      `${moodleURL}/login/token.php?username=${credentials.username}&password=${credentials.password}&service=moodle_mobile_app`
     );
   }
 
-  getAllEnrolledUsers(token) {
+  enrolledUser() {
+    const userToken = localStorage.getItem("token");
+    // console.log(token);
+
     return axios.post(
-      `${baseURL}webservice/rest/server.php?wstoken=${token}&wsfunction=core_enrol_get_enrolled_users&moodlewsrestformat=json&courseid=2`
+      `${moodleURL}/webservice/rest/server.php?wstoken=${userToken}&wsfunction=core_enrol_get_enrolled_users&moodlewsrestformat=json&courseid=2`
     );
   }
 }
