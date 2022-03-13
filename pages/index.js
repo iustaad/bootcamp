@@ -1,43 +1,64 @@
-import Head from 'next/head'
+import Head from "next/head";
+import LocForm from "../components/CountryContactPhone";
 
 export default function Home() {
-
-  let names = ["muneeb", "minhaj", "ali", "wahaj"]
-
   return (
     <div className="container">
-   
-
       <Head>
-        <title>Ali first application</title>
+        <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
       <main>
-        {names.map((user, index) => {
-          return(
-            <li key={index}>
-              {user}
-            </li>
-          );
-        })}
-
-
-
-<div>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/S9D7etG8qV0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</div>
-
-
-
-
-
+        <LocForm />
+        {/* <div className="tableContainer">
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>City/Country</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Minhaj</th>
+                <td>minhaj@test.com</td>
+                <td>KHI/PK</td>
+              </tr>
+              <tr>
+                <th scope="row">Muneeb</th>
+                <td>muneeb@test.com</td>
+                <td>KHI/PK</td>
+              </tr>
+              <tr>
+                <th scope="row">Bilal</th>
+                <td>bilal@test.com</td>
+                <td>LHA/PK</td>
+              </tr>
+            </tbody>
+          </table>
+        </div> */}
       </main>
 
       <style jsx>{`
-        main {
-          padding: 50px;
+        .tableContainer {
           display: flex;
-          flex-direction: column;
+          margin: 5%;
+          justify-content: center;
+          padding: 5px;
+        }
+
+        table {
+          width: 40%;
+          text-align: left;
+          padding: 6px;
+          border: 1px solid black;
+          border-collapse: collapse;
+        }
+
+        thead {
+          border: 1px solid black;
         }
       `}</style>
 
@@ -56,6 +77,5 @@ export default function Home() {
         }
       `}</style>
     </div>
-
-  )
+  );
 }
