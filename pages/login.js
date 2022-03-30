@@ -8,8 +8,12 @@ import moodleService from "../Services/moodleService";
 import { TextField } from "../components/TextField";
 // styles used for styling of this component
 import styles from "../styles/login.module.css";
+// handle http request
+import user from "../services/user";
 
 export default function Login() {
+  const userDetails = [];
+
   const validate = Yup.object({
     username: Yup.string(),
     password: Yup.string(),
@@ -25,18 +29,6 @@ export default function Login() {
     }
   };
 
-  const getEnrolledUser = async () => {
-    // const userToken = localStorage.getItem("token");
-    try {
-      const response = await moodleService.enrolledUser();
-      console.log(response.data[0]);
-      console.log(response.data[1]);
-      console.log(response.data[2]);
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
   return (
     <Formik
       initialValues={{
@@ -45,8 +37,8 @@ export default function Login() {
       }}
       validationSchema={validate}
       onSubmit={(values) => {
+        localStorage.setItem("username", values.username);
         loginUsr(values);
-        getEnrolledUser();
       }}
     >
       {(formik) => (
@@ -68,7 +60,7 @@ export default function Login() {
                   type="password"
                 />
 
-                <button className={styles.loginButton} type="submit">
+                <button className={styles.button} type="submit">
                   Login
                 </button>
               </Form>

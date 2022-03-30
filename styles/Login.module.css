@@ -25,7 +25,16 @@
     margin: 0px 21px;
 }
 
-.loginButton{
-    margin-top: 15px;
-    margin-left: 86px;
-}
+.button {
+    border-radius: 15px;
+    background-color: #85ba22;
+    border: none;
+    color: #ffffff;
+    text-align: center;
+    font-size: 13px;
+    padding: 15px;
+    width: 90px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+  }

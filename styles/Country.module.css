@@ -1,0 +1,41 @@
+.app {
+  margin: 5%;
+}
+
+.container {
+  max-width: 80%;
+  margin: 5% auto;
+  padding: 5px;
+}
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.h1 {
+  text-align: center;
+}
+
+.select {
+  font-size: 1em;
+  width: 100%;
+  padding: 5px;
+}
+
+.input {
+  font-size: 1em;
+  width: 104%;
+  padding: 5px;
+}
+
+.PhoneInputInput {
+  font-size: 1em;
+}
+
+.selectCountry {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
