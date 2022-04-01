@@ -1,5 +1,7 @@
 import React from "react";
 
+import styles from "../styles/Report.module.css";
+
 export default function report() {
   let JsonData = [
     [
@@ -9,7 +11,7 @@ export default function report() {
         section: "M2",
         attendence: "100%",
         unauthorizedAbsence: "0%",
-        authorizedAbsence: "0%"
+        authorizedAbsence: "0%",
       },
     ],
     [
@@ -78,23 +80,23 @@ export default function report() {
   const reportData = JsonData[1].map((data) => {
     return (
       <tr>
-        <td>
+        <td data-lable="Subject">
           <strong>{data.subject}</strong>
         </td>
-        <td>{data.attainment}</td>
-        <td>{data.attitude}</td>
-        <td>{data.contribution}</td>
-        <td>{data.behavior}</td>
-        <td>{data.target}</td>
-        <td>{data.teacher}</td>
+        <td data-lable="Current Attainment">{data.attainment}</td>
+        <td data-lable="Attitude to Learing	">{data.attitude}</td>
+        <td data-lable="Contribution to Class	">{data.contribution}</td>
+        <td data-lable="Behavior	">{data.behavior}</td>
+        <td data-lable="Current Target	">{data.target}</td>
+        <td data-lable="Teacher Name">{data.teacher}</td>
       </tr>
     );
   });
   return (
-    <div className="mainContainer">
-      <div className="studentDetails">{studentData}</div>
-      <div className="tableContainer">
-        <table>
+    <div className={styles.mainContainer}>
+      <div className={styles.studentDetails}>{studentData}</div>
+      <div className={styles.tableContainer}>
+        <table className={styles.table}>
           <thead>
             <tr>
               <th>Subject</th>
@@ -109,58 +111,13 @@ export default function report() {
           <tbody>{reportData}</tbody>
         </table>
       </div>
-      <div className="reportFooter">
+      <div className={styles.reportFooter}>
         <p>Key:</p>
         <p>1-Excellent</p>
         <p>2-Good</p>
         <p>3-Satisfactory</p>
         <p>4-Bad</p>
       </div>
-
-      <style jsx>{`
-        .mainContainer {
-          display: flex;
-          flex-direction: column;
-          padding: 10px;
-          align-content: space-around;
-          flex-wrap: wrap;
-          
-        }
-
-        .studentDetails {
-          display: flex;
-          flex-wrap: wrap;
-          justify-content: space-evenly;
-          border: 1px solid darkgrey;
-        }
-        .tableContainer{
-          display: flex; 
-          justify-content: center;
-          border: 1px solid darkgray;
-          border-collapse: collapse;
-          padding: 5px;
-          text-align: center;
-        }
-
-        .reportFooter {
-          display: flex;
-          justify-content: space-evenly;
-        }
-
-        th {
-          background-color: #04aa6d;
-          color: white;
-          font-weight: normal;
-          border: 1px solid darkgray;
-        }
-        table, thead, th, td {
-          border: 1px solid black;
-        }
-
-      tbody, tr, td {
-          border: 1px solid black;
-        }
-      `}</style>
     </div>
   );
 }
