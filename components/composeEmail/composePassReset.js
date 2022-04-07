@@ -1,15 +1,10 @@
 import axios from "axios";
 
 /**
- * This is the template for the email that is sent to the user when they request to reset their password.
- * The email is sent from the email address that is configured in the mailService, passwordResetEmail function.
- * The email is sent to the email address that is configured in the mailService passwordResetEmail function.
- * The subject of the email is "Password Reset"
- * The message is sent as HTML.
+ * @description: This function is used to convert the MJML into a HTML and send it to the user's, This is the template for the email that is sent to the user when they request to reset their password.
  * @returns {string} - The HTML message that is sent to the user.
  */
-export async function composePassResetTemplate() {
-  console.log("composePassResetTemplate");
+export async function composePassReset() {
   try {
     const response = await axios.post(
       "https://api.mjml.io/v1/render",
@@ -23,9 +18,9 @@ export async function composePassResetTemplate() {
         },
       }
     );
-    console.log("response", response.data);
+    // console.log("response", response.data);
     return response.data.html;
   } catch (error) {
-    console.log("Error in composePassResetTemplate: ", error);
+    console.log(error);
   }
 }
