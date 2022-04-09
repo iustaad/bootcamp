@@ -80,14 +80,6 @@ function CourseEnrollment() {
         </div>
       </div>
     </div>
-
-    // <div className={styles.container}>
-    //   <h1 className={styles.heading}>Enrolled User from perticular</h1>
-    //   <div className={styles.main}>
-    //     <div className={styles.Cardleft}>{getSingleCourse}</div>
-    //     <div>{getEnrolledUsers}</div>
-    //   </div>
-    // </div>
   );
 }
 
