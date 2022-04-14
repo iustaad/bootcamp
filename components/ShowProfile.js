@@ -19,7 +19,7 @@ function ShowProfile() {
       // console.log(response.data.users);
       const userName = localStorage.getItem("username");
       if (userName == "admin") {
-        allUsersData();
+        // allUsersData();
       } else {
         return;
       }

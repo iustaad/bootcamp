@@ -40,6 +40,7 @@ function AssignmentList() {
           <span>Show my assignments</span>
         </button>
       </div>
+
       <div>
         <h3>Assignments</h3>
         <div className={styles.card_right}>
@@ -47,12 +48,6 @@ function AssignmentList() {
         </div>
       </div>
     </div>
-
-    // <div className={styles.container}>
-    //   <div>Assignment List</div>
-    //   <button onClick={getAllCourses}>Show my assignments</button>
-    //   <div>{renderAssignments}</div>
-    // </div>
   );
 }
 
