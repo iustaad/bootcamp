@@ -19,7 +19,9 @@ function AssignmentList() {
   };
 
   const getAssignmentFormList = allCourses.map((courses) => {
+    console.log(courses);
     const saveGetAssignment = courses.assignments.map((assignments) => {
+      console.log(assignments);
       assignmentList.push(assignments);
     });
   });
