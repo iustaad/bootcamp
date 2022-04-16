@@ -69,7 +69,7 @@ function demoform() {
                   </div>
                   <div>
                     <button className={styles.button} type="submit">
-                      submit
+                      <span>Submit</span>
                     </button>
                   </div>
                 </Form>

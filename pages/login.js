@@ -8,6 +8,7 @@ import moodleService from "../Services/moodleService";
 import { TextField } from "../components/TextField";
 // styles used for styling of this component
 import styles from "../styles/login.module.css";
+import Link from "next/link";
 // handle http request
 import user from "../services/user";
 
@@ -59,10 +60,11 @@ export default function Login() {
                   name="password"
                   type="password"
                 />
-
-                <button className={styles.button} type="submit">
-                  Login
-                </button>
+                <Link href="/dashboard">
+                  <button className={styles.button} type="submit">
+                    Login
+                  </button>
+                </Link>
               </Form>
             </div>
           </div>
