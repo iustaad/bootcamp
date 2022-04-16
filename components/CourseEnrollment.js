@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 
-import course from "../services/courses";
+import courses from "../services/courses";
 import styles from "../styles/CourseEnrollment.module.css";
 
 function CourseEnrollment() {
@@ -15,7 +15,7 @@ function CourseEnrollment() {
   // Call getAllCourse service
   const getAllCourse = async () => {
     try {
-      const response = await course.getAllCourses();
+      const response = await courses.getAllCourses();
       setAllCourse(response.data);
     } catch (err) {
       console.log(err);
@@ -33,7 +33,7 @@ function CourseEnrollment() {
             className={styles.button}
             onClick={() => enrolledUsers(course.id)}
           >
-            <span className={styles.button2}>{course.shortname}</span>
+            <span className={styles.button2}>{course.fullname}</span>
           </button>
         </div>
       );
@@ -43,7 +43,8 @@ function CourseEnrollment() {
   // Call enrolledUser service
   const enrolledUsers = async (courseid) => {
     try {
-      const response = await course.getEnrolledUser(courseid);
+      const response = await courses.getEnrolledUser(courseid);
+      console.log(response);
       if (response.data.length > 0) {
         SetenrolledUserList(response.data);
       } else {

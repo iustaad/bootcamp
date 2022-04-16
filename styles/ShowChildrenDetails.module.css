@@ -80,14 +80,88 @@
   .sname {
     margin-bottom: 35px;
   }
+
+  .course{
+    margin-left: 285px;
+    margin-top: -120px;
+  }
+
+  .heading{
+    margin-left: 70px;
+    margin-top: -38px;
+}
+
+.courseName{
+  margin-left: 75px;
+}
+
+@media screen and (max-width: 541px) {
+  .card {
+    margin: 0px;
+    padding: 15px;
+    margin-right: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .card_left {
+    margin-right: 0px;
+    border-right: none;
+  }
+  .card_right {
+    align-items: baseline;
+  }
+  .course{
+    margin-left: -220px;
+    margin-top: 120px;  
+  }
+  .heading{
+    margin-left: 75px;
+  }
+  .courseName{
+    margin-left: -217px;
+    margin-top: 261px;
+  }
+}
+
+
+@media screen and (max-width: 530px) {
+  .card {
+    margin: 0px;
+    padding: 15px;
+    margin-right: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .card_left {
+    margin-right: 0px;
+    border-right: none;
+  }
+  .card_right {
+    align-items: baseline;
+  }
+  .course{
+    margin-left: 3px;
+    margin-top: 54px;
+  }
+  .heading{
+    margin-left: 75px;
+  }
+  .courseName{
+    margin-left: -217px;
+    margin-top: 261px;
+  }
+}
   
-  @media screen and (max-width: 540px) {
+  @media screen and (max-width: 281px) {
     .card {
       margin: 0px;
       padding: 15px;
       margin-right: none;
       display: flex;
       justify-content: center;
+      flex-wrap: wrap;
     }
     .card_left {
       margin-right: 0px;
@@ -96,5 +170,17 @@
     .card_right {
       align-items: baseline;
     }
+    .course{
+      margin-left: -6px;
+      margin-top: 54px;
+    }
+    .heading{
+      margin-left: 75px;
+    }
+    .courseName{
+      margin-top: 0px;
+      margin-left: -77px;
+    }
   }
+  
   
