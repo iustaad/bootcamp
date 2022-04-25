@@ -2,6 +2,7 @@ import axios from "axios";
 import { composeCheckoutEmail } from "../components/composeEmail/composeCheckoutEmail";
 import { composeDemoClassEmail } from "../components/composeEmail/composeDemoClassEmail";
 import { composePassReset } from "../components/composeEmail/composePassReset";
+import composeContactFormEmail from "../components/composeEmail/composeContactFormEmail";
 
 class mailService {
   /**
@@ -46,6 +47,16 @@ class mailService {
       toEmail: "to@mail.com" /* userEmail,*/,
       subject: "Demo Class Request",
       message: template,
+    });
+  }
+
+  async ContactFormEmail(userEmail, name) {
+    console.log(name);
+    return axios.post("http://localhost:3000/api/mail", {
+      fromEmail: "helpdesk@iustaad.com",
+      toEmail: userEmail,
+      subject: "Thank you for contacting us",
+      message: composeContactFormEmail(name),
     });
   }
 }

@@ -3,6 +3,8 @@ const nodemailer = require("nodemailer");
 export default function handler(req, res) {
   const { fromEmail, toEmail, subject, message } = req.body;
 
+  console.log(message);
+
   // create reusable transporter object using the default SMTP transport (configured in .env.local)
   const transporter = nodemailer.createTransport({
     host: "smtp.ethereal.email",

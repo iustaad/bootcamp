@@ -1,10 +1,12 @@
 import { Form, Formik } from "formik";
 import Link from "next/link";
 import * as Yup from "yup";
+import mailService from "../services/mailService";
 import styles from "../styles/Footer.module.css";
 
 function Footer() {
   const validate = Yup.object({
+    name: Yup.string().required("Required"),
     email: Yup.string().email("Invalid email address").required("Required"),
     message: Yup.string().required("Required"),
   });
@@ -40,12 +42,14 @@ function Footer() {
       <div className={styles.footer_right}>
         <Formik
           initialValues={{
+            name: "",
             email: "",
             message: "",
           }}
           validationSchema={validate}
-          onSubmit={(values) => {
-            console.log(values);
+          onSubmit={async (values, { setSubmitting }) => {
+            await mailService.ContactFormEmail(values.email, values.name);
+            setSubmitting(false);
           }}
         >
           {(formik) => (
@@ -53,6 +57,14 @@ function Footer() {
               <p>Contact Us</p>
               <br />
               <br />
+              <input
+                type="name"
+                name="name"
+                placeholder="Full Name"
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                value={formik.values.name}
+              />
               <input
                 type="email"
                 name="email"
