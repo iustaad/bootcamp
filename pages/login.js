@@ -3,7 +3,7 @@ import { Formik, Form } from "formik";
 //Yup is used for form validation
 import * as Yup from "yup";
 //moodle service used for handel HTTP request
-import moodleService from "../Services/moodleService";
+import moodleService from "../Services/moodleServiceLogin";
 //TextField component is used for generate input fields
 import { TextField } from "../components/TextField";
 // styles used for styling of this component
