@@ -1,3 +1,4 @@
+import axios from "axios";
 import { Form, Formik } from "formik";
 import Link from "next/link";
 import * as Yup from "yup";
@@ -48,8 +49,20 @@ function Footer() {
           }}
           validationSchema={validate}
           onSubmit={async (values, { setSubmitting }) => {
-            await mailService.ContactFormEmail(values.email, values.name);
-            setSubmitting(false);
+            if (values.name && values.email && values.message) {
+              try {
+                await mailService.ContactFormEmail(values.email, values.name);
+                await axios.post("http://localhost:3000/api/mail", {
+                  fromEmail: "fromEmail@mailcom",
+                  toEmail: "toEmail@mail.com",
+                  subject: "Contact Form Submission",
+                  message: values.message,
+                });
+              } catch (error) {
+                console.log(error);
+              }
+              setSubmitting(false);
+            }
           }}
         >
           {(formik) => (
