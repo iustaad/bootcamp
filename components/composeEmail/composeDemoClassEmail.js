@@ -1,27 +1,313 @@
-import axios from "axios";
+export function composeDemoClassEmail(username, id) {
+  return `<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
 
-/**
- * @description: This function is used to convert the MJML into a HTML and send it to the user's email and to send email to user when he/she has requested for demo class. The email is sent from the email address that is configured in the mailService, demoClassEmail function is called in the mailService.js file.
- * @param {string} id - The tracking number of the order.
- * @returns {string} - The HTML that is sent to the user's email.
- */
-export async function composeDemoClassEmail(id) {
-  try {
-    const response = await axios.post(
-      "https://api.mjml.io/v1/render",
-      {
-        mjml: `<mjml> <mj-body background-color='#f7f7f7'> <mj-section padding-bottom='20px' padding-top='20px'> <mj-column vertical-align='middle' width='85%'> <mj-image align='center' padding='25px' src='https://staging.iustaad.com/wp-content/uploads/2018/07/Logo-Green-1.png' width='150px'></mj-image> </mj-column> </mj-section> <mj-section border-radius='30px' background-color='#fcfff5' padding-bottom='20px' padding-top='20px'> <mj-column vertical-align='middle' width='85%'> <mj-text align='center' font-size='20px' font-weight='600' font-family='openSansHelvetica,Arial,sans-serif' padding-left='25px' padding-right='25px'><span>Order has been placed🎉</span></mj-text> <mj-text align='left' font-size='14px' font-family='open Sans Helvetica, Arial, sans-serif' padding-left='25px' padding-right='25px'> <h4>Hi {{$user->name}}👋,</h4> <p> We have received your request. Our coordinator will contact you. you cna use the below tracking number for you request. ${id} </p> </mj-text> <mj-button align='center' font-size='14px' background-color='#84bc00' border-radius='10px' color='#fff' font-family='open Sans Helvetica, Arial, sans-serif' href='${process.env.FRONTEND_URL}/order/${id}'> View Order Status &rarr; </mj-button> <mj-text align='left' font-size='14px' font-family='open Sans Helvetica, Arial, sans-serif' padding-left='25px' padding-right='25px'> Thanks, <br /> The iUstaad Team </mj-text> </mj-column> </mj-section> <mj-section> <mj-column> <mj-social icon-size='25px' mode='horizontal'> <mj-social-element name='facebook' href='https://www.facebook.com/free.taleem'></mj-social-element> <mj-social-element name='pinterest' href='https://www.pinterest.com/'></mj-social-element> <mj-social-element name='youtube' href='https://www.youtube.com/user/freeTaleem'></mj-social-element> </mj-social> </mj-column> </mj-section> <mj-section border-radius='30px' background-color='#fcfff5'> <mj-column vertical-align='middle' width='85%'> <mj-text align='center' font-size='12px' font-family='open Sans Helvetica, Arial, sans-serif' padding-left='25px' padding-right='25px'> <h3>Happy to help.</h3> Have any questions? We'd love to help. <br /> Just reply to this email and we'll get in touch! </mj-text> </mj-column> </mj-section> <mj-section padding-bottom='20px' padding-top='20px'> <mj-column vertical-align='middle' width='85%'> <mj-divider border-width='1px' border-color='#84bc00' border-style='dashed' /> <mj-text align='center' font-size='9px' font-family='open Sans Helvetica, Arial, sans-serif'> 2022 iUstaad.com | All rights reserved. <br /> <br /> Our mailing address is: <br /> 101, A2, IFZA, Dubai Silicon Oasis, Dubai, United Arab Emirates. <br /> <br /> Want to change how you receive these emails? <br /> You can <a href='{{Unsubscribe URL}}'>unsubscribe</a> here. </mj-text> </mj-column> </mj-section> </mj-body> </mjml>`,
-      },
-      {
-        headers: {
-          Authorization:
-            "Basic NzJiOGI1MDUtOGQ2YS00NmNmLTlkMzQtMTAyMjdkYmJjNjM5OjI4Mjc4YmYzLTc2NDMtNDE2Yi04ZWQxLWUzMzg4MDU1ODJlNg==",
-        },
+<head>
+  <title>
+  </title>
+  <!--[if !mso]><!-->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!--<![endif]-->
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style type="text/css">
+    #outlook a {
+      padding: 0;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+    }
+
+    table,
+    td {
+      border-collapse: collapse;
+      mso-table-lspace: 0pt;
+      mso-table-rspace: 0pt;
+    }
+
+    img {
+      border: 0;
+      height: auto;
+      line-height: 100%;
+      outline: none;
+      text-decoration: none;
+      -ms-interpolation-mode: bicubic;
+    }
+
+    p {
+      display: block;
+      margin: 13px 0;
+    }
+  </style>
+  <!--[if mso]>
+        <noscript>
+        <xml>
+        <o:OfficeDocumentSettings>
+          <o:AllowPNG/>
+          <o:PixelsPerInch>96</o:PixelsPerInch>
+        </o:OfficeDocumentSettings>
+        </xml>
+        </noscript>
+        <![endif]-->
+  <!--[if lte mso 11]>
+        <style type="text/css">
+          .mj-outlook-group-fix { width:100% !important; }
+        </style>
+        <![endif]-->
+  <!--[if !mso]><!-->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,700" rel="stylesheet" type="text/css">
+  <style type="text/css">
+    @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,700);
+  </style>
+  <!--<![endif]-->
+  <style type="text/css">
+    @media only screen and (min-width:480px) {
+      .mj-column-per-85 {
+        width: 85% !important;
+        max-width: 85%;
       }
-    );
-    // console.log("response", response.data);
-    return response.data.html;
-  } catch (error) {
-    console.log(error);
-  }
+
+      .mj-column-per-100 {
+        width: 100% !important;
+        max-width: 100%;
+      }
+    }
+  </style>
+  <style media="screen and (min-width:480px)">
+    .moz-text-html .mj-column-per-85 {
+      width: 85% !important;
+      max-width: 85%;
+    }
+
+    .moz-text-html .mj-column-per-100 {
+      width: 100% !important;
+      max-width: 100%;
+    }
+  </style>
+  <style type="text/css">
+    @media only screen and (max-width:480px) {
+      table.mj-full-width-mobile {
+        width: 100% !important;
+      }
+
+      td.mj-full-width-mobile {
+        width: auto !important;
+      }
+    }
+  </style>
+</head>
+
+<body style="word-spacing:normal;background-color:#f7f7f7;">
+  <div style="background-color:#f7f7f7;">
+    <!--[if mso | IE]><table align="center" border="0" cellpadding="0" cellspacing="0" class="" style="width:600px;" width="600" ><tr><td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]-->
+    <div style="margin:0px auto;max-width:600px;">
+      <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width:100%;">
+        <tbody>
+          <tr>
+            <td style="direction:ltr;font-size:0px;padding:20px 0;padding-bottom:20px;padding-top:20px;text-align:center;">
+              <!--[if mso | IE]><table role="presentation" border="0" cellpadding="0" cellspacing="0"><tr><td class="" style="vertical-align:middle;width:510px;" ><![endif]-->
+              <div class="mj-column-per-85 mj-outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:middle;width:100%;">
+                <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:middle;" width="100%">
+                  <tbody>
+                    <tr>
+                      <td align="center" style="font-size:0px;padding:25px;word-break:break-word;">
+                        <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:collapse;border-spacing:0px;">
+                          <tbody>
+                            <tr>
+                              <td style="width:150px;">
+                                <img height="auto" src="https://staging.iustaad.com/wp-content/uploads/2018/07/Logo-Green-1.png" style="border:0;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px;" width="150" />
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <!--[if mso | IE]></td></tr></table><![endif]-->
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <!--[if mso | IE]></td></tr></table><table align="center" border="0" cellpadding="0" cellspacing="0" class="" style="width:600px;" width="600" bgcolor="#fcfff5" ><tr><td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]-->
+    <div style="background:#fcfff5;background-color:#fcfff5;margin:0px auto;border-radius:30px;max-width:600px;">
+      <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background:#fcfff5;background-color:#fcfff5;width:100%;border-radius:30px;">
+        <tbody>
+          <tr>
+            <td style="direction:ltr;font-size:0px;padding:20px 0;padding-bottom:20px;padding-top:20px;text-align:center;">
+              <!--[if mso | IE]><table role="presentation" border="0" cellpadding="0" cellspacing="0"><tr><td class="" style="vertical-align:middle;width:510px;" ><![endif]-->
+              <div class="mj-column-per-85 mj-outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:middle;width:100%;">
+                <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:middle;" width="100%">
+                  <tbody>
+                    <tr>
+                      <td align="center" style="font-size:0px;padding:10px 25px;padding-right:25px;padding-left:25px;word-break:break-word;">
+                        <div style="font-family:openSansHelvetica,Arial,sans-serif;font-size:20px;font-weight:600;line-height:1;text-align:center;color:#000000;"></div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td align="left" style="font-size:0px;padding:10px 25px;padding-right:25px;padding-left:25px;word-break:break-word;">
+                        <div style="font-family:open Sans Helvetica, Arial, sans-serif;font-size:14px;line-height:1;text-align:left;color:#000000;">
+                          <h4>Hi ${username},</h4>
+                          <p>We have received your request. Our coordinator will contact you. you cna use the below tracking number for you request.${id}</p>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td align="left" style="font-size:0px;padding:10px 25px;padding-right:25px;padding-left:25px;word-break:break-word;">
+                        <div style="font-family:open Sans Helvetica, Arial, sans-serif;font-size:14px;line-height:1;text-align:left;color:#000000;">Thanks, <br /> The iUstaad Team</div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <!--[if mso | IE]></td></tr></table><![endif]-->
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <!--[if mso | IE]></td></tr></table><table align="center" border="0" cellpadding="0" cellspacing="0" class="" style="width:600px;" width="600" ><tr><td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]-->
+    <div style="margin:0px auto;max-width:600px;">
+      <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width:100%;">
+        <tbody>
+          <tr>
+            <td style="direction:ltr;font-size:0px;padding:20px 0;text-align:center;">
+              <!--[if mso | IE]><table role="presentation" border="0" cellpadding="0" cellspacing="0"><tr><td class="" style="vertical-align:top;width:600px;" ><![endif]-->
+              <div class="mj-column-per-100 mj-outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
+                <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top;" width="100%">
+                  <tbody>
+                    <tr>
+                      <td align="center" style="font-size:0px;padding:10px 25px;word-break:break-word;">
+                        <!--[if mso | IE]><table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" ><tr><td><![endif]-->
+                        <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="float:none;display:inline-table;">
+                          <tr>
+                            <td style="padding:4px;vertical-align:middle;">
+                              <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="background:#3b5998;border-radius:3px;width:25px;">
+                                <tr>
+                                  <td style="font-size:0;height:25px;vertical-align:middle;width:25px;">
+                                    <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.facebook.com/free.taleem" target="_blank">
+                                      <img height="25" src="https://www.mailjet.com/images/theme/v1/icons/ico-social/facebook.png" style="border-radius:3px;display:block;" width="25" />
+                                    </a>
+                                  </td>
+                                </tr>
+                              </table>
+                            </td>
+                          </tr>
+                        </table>
+                        <!--[if mso | IE]></td><td><![endif]-->
+                        <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="float:none;display:inline-table;">
+                          <tr>
+                            <td style="padding:4px;vertical-align:middle;">
+                              <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="background:#bd081c;border-radius:3px;width:25px;">
+                                <tr>
+                                  <td style="font-size:0;height:25px;vertical-align:middle;width:25px;">
+                                    <a href="https://pinterest.com/pin/create/button/?url=https://www.pinterest.com/&media=&description=" target="_blank">
+                                      <img height="25" src="https://www.mailjet.com/images/theme/v1/icons/ico-social/pinterest.png" style="border-radius:3px;display:block;" width="25" />
+                                    </a>
+                                  </td>
+                                </tr>
+                              </table>
+                            </td>
+                          </tr>
+                        </table>
+                        <!--[if mso | IE]></td><td><![endif]-->
+                        <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="float:none;display:inline-table;">
+                          <tr>
+                            <td style="padding:4px;vertical-align:middle;">
+                              <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="background:#EB3323;border-radius:3px;width:25px;">
+                                <tr>
+                                  <td style="font-size:0;height:25px;vertical-align:middle;width:25px;">
+                                    <a href="https://www.youtube.com/user/freeTaleem" target="_blank">
+                                      <img height="25" src="https://www.mailjet.com/images/theme/v1/icons/ico-social/youtube.png" style="border-radius:3px;display:block;" width="25" />
+                                    </a>
+                                  </td>
+                                </tr>
+                              </table>
+                            </td>
+                          </tr>
+                        </table>
+                        <!--[if mso | IE]></td></tr></table><![endif]-->
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <!--[if mso | IE]></td></tr></table><![endif]-->
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <!--[if mso | IE]></td></tr></table><table align="center" border="0" cellpadding="0" cellspacing="0" class="" style="width:600px;" width="600" bgcolor="#fcfff5" ><tr><td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]-->
+    <div style="background:#fcfff5;background-color:#fcfff5;margin:0px auto;border-radius:30px;max-width:600px;">
+      <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background:#fcfff5;background-color:#fcfff5;width:100%;border-radius:30px;">
+        <tbody>
+          <tr>
+            <td style="direction:ltr;font-size:0px;padding:20px 0;text-align:center;">
+              <!--[if mso | IE]><table role="presentation" border="0" cellpadding="0" cellspacing="0"><tr><td class="" style="vertical-align:middle;width:510px;" ><![endif]-->
+              <div class="mj-column-per-85 mj-outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:middle;width:100%;">
+                <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:middle;" width="100%">
+                  <tbody>
+                    <tr>
+                      <td align="center" style="font-size:0px;padding:10px 25px;padding-right:25px;padding-left:25px;word-break:break-word;">
+                        <div style="font-family:open Sans Helvetica, Arial, sans-serif;font-size:12px;line-height:1;text-align:center;color:#000000;">
+                          <h3>Happy to help.</h3> Have any questions? We'd love to help. <br /> Just reply to this email and we'll get in touch!
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <!--[if mso | IE]></td></tr></table><![endif]-->
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <!--[if mso | IE]></td></tr></table><table align="center" border="0" cellpadding="0" cellspacing="0" class="" style="width:600px;" width="600" ><tr><td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]-->
+    <div style="margin:0px auto;max-width:600px;">
+      <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width:100%;">
+        <tbody>
+          <tr>
+            <td style="direction:ltr;font-size:0px;padding:20px 0;padding-bottom:20px;padding-top:20px;text-align:center;">
+              <!--[if mso | IE]><table role="presentation" border="0" cellpadding="0" cellspacing="0"><tr><td class="" style="vertical-align:middle;width:510px;" ><![endif]-->
+              <div class="mj-column-per-85 mj-outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:middle;width:100%;">
+                <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:middle;" width="100%">
+                  <tbody>
+                    <tr>
+                      <td align="center" style="font-size:0px;padding:10px 25px;word-break:break-word;">
+                        <p style="border-top:dashed 1px #84bc00;font-size:1px;margin:0px auto;width:100%;">
+                        </p>
+                        <!--[if mso | IE]><table align="center" border="0" cellpadding="0" cellspacing="0" style="border-top:dashed 1px #84bc00;font-size:1px;margin:0px auto;width:460px;" role="presentation" width="460px" ><tr><td style="height:0;line-height:0;"> &nbsp;
+</td></tr></table><![endif]-->
+                      </td>
+                    </tr>
+                    <tr>
+                      <td align="center" style="font-size:0px;padding:10px 25px;word-break:break-word;">
+                        <div style="font-family:open Sans Helvetica, Arial, sans-serif;font-size:9px;line-height:1;text-align:center;color:#000000;">2022 iUstaad.com | All rights reserved. <br />
+                          <br /> Our mailing address is: <br /> 101, A2, IFZA, Dubai Silicon Oasis, Dubai, United Arab Emirates. <br />
+                          <br /> Want to change how you receive these emails? <br /> You can <a href='{{Unsubscribe URL}}'>unsubscribe</a> here.
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <!--[if mso | IE]></td></tr></table><![endif]-->
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <!--[if mso | IE]></td></tr></table><![endif]-->
+  </div>
+</body>
+
+</html>`;
 }

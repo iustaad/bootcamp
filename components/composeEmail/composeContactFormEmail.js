@@ -1,4 +1,4 @@
-export function composePassReset(username, token) {
+function composeContactFormEmail(name) {
   return `<!doctype html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
 
@@ -60,10 +60,8 @@ export function composePassReset(username, token) {
         <![endif]-->
   <!--[if !mso]><!-->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,700" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700" rel="stylesheet" type="text/css">
   <style type="text/css">
     @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,700);
-    @import url(https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700);
   </style>
   <!--<![endif]-->
   <style type="text/css">
@@ -148,37 +146,18 @@ export function composePassReset(username, token) {
                 <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:middle;" width="100%">
                   <tbody>
                     <tr>
-                      <td align="center" style="font-size:0px;padding:10px 25px;padding-right:25px;padding-left:25px;word-break:break-word;">
-                        <div style="font-family:openSansHelvetica,Arial,sans-serif;font-size:20px;font-weight:600;line-height:1;text-align:center;color:#000000;"></div>
+                      <td align="left" style="font-size:0px;padding:10px 25px;padding-right:25px;padding-left:25px;word-break:break-word;">
+                        <div style="font-family:open Sans Helvetica, Arial, sans-serif;font-size:16px;font-weight:600;line-height:1;text-align:left;color:#000000;"><span>Hello ${name}! 👋</span></div>
                       </td>
                     </tr>
                     <tr>
                       <td align="left" style="font-size:0px;padding:10px 25px;padding-right:25px;padding-left:25px;word-break:break-word;">
-                        <div style="font-family:open Sans Helvetica, Arial, sans-serif;font-size:14px;line-height:1;text-align:left;color:#000000;">
-                          <h3>Hi ${username},</h3>
-                          <p>We received a request to reset your password. If you made this request, please click the button below to reset your password.</p>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td align="center" vertical-align="middle" style="font-size:0px;padding:10px 25px;word-break:break-word;">
-                        <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:separate;line-height:100%;">
-                          <tr>
-                            <td align="center" bgcolor="#84bc00" role="presentation" style="border:none;border-radius:10px;cursor:auto;mso-padding-alt:10px 25px;background:#84bc00;" valign="middle">
-                              <a href="https://www.iustaad.com${token}" style="display:inline-block;background:#84bc00;color:#ffffff;font-family:open Sans Helvetica, Arial, sans-serif;font-size:14px;font-weight:normal;line-height:120%;margin:0;text-decoration:none;text-transform:none;padding:10px 25px;mso-padding-alt:0px;border-radius:10px;" target="_blank"> Reset Your Password </a>
-                            </td>
-                          </tr>
-                        </table>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td align="left" style="font-size:0px;padding:10px 25px;word-break:break-word;">
-                        <div style="font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:13px;line-height:1;text-align:left;color:#000000;">If you did not request a password reset, please ignore this email or reply to let us know.</div>
+                        <div style="font-family:open Sans Helvetica, Arial, sans-serif;font-size:14px;line-height:1;text-align:left;color:#000000;">Thank you for contacting us. We will get back to you as soon as possible. In the meantime, you can check out our <a href="https://iustaad.com/">website</a>.</div>
                       </td>
                     </tr>
                     <tr>
                       <td align="left" style="font-size:0px;padding:10px 25px;padding-right:25px;padding-left:25px;word-break:break-word;">
-                        <div style="font-family:open Sans Helvetica, Arial, sans-serif;font-size:14px;line-height:1;text-align:left;color:#000000;">Thanks, <br /> The iUstaad Team</div>
+                        <div style="font-family:open Sans Helvetica, Arial, sans-serif;font-size:14px;line-height:1;text-align:left;color:#000000;">Sincerely, <br /> The iUstaad Team</div>
                       </td>
                     </tr>
                   </tbody>
@@ -308,7 +287,10 @@ export function composePassReset(username, token) {
                     </tr>
                     <tr>
                       <td align="center" style="font-size:0px;padding:10px 25px;word-break:break-word;">
-                        <div style="font-family:open Sans Helvetica, Arial, sans-serif;font-size:9px;line-height:1;text-align:center;color:#000000;">2022 iUstaad.com | All rights reserved. <br /> <br /> Our mailing address is: <br /> 101, A2, IFZA, Dubai Silicon Oasis, Dubai, United Arab Emirates. <br /> <br /> Want to change how you receive these emails? <br /> You can <a href='{{Unsubscribe URL}}'>unsubscribe</a> here.</div>
+                        <div style="font-family:open Sans Helvetica, Arial, sans-serif;font-size:9px;line-height:1;text-align:center;color:#000000;">2022 iUstaad.com | All rights reserved. <br />
+                          <br /> Our mailing address is: <br /> 101, A2, IFZA, Dubai Silicon Oasis, Dubai, United Arab Emirates. <br />
+                          <br /> Want to change how you receive these emails? <br /> You can <a href="{{Unsubscribe URL}}">unsubscribe</a> here.
+                        </div>
                       </td>
                     </tr>
                   </tbody>
@@ -326,3 +308,5 @@ export function composePassReset(username, token) {
 
 </html>`;
 }
+
+export default composeContactFormEmail;
