@@ -11,12 +11,11 @@ class mailService {
    * @param {Number} token -- token to be sent to the user
    */
   async passwordResetEmail(/* userEmail, resetToken */) {
-    const template = await composePassReset(/* resetToken */); //Not remove await keyword here
     return axios.post("http://localhost:3000/api/mail", {
       fromEmail: "helpdesk@iustaad.com",
       toEmail: "userEmail@email.com" /* userEmail,*/,
       subject: "Password Reset Request 🔑",
-      message: template,
+      message: composePassReset(/*username, resetToken */ "Minhaj", "12345"),
     });
   }
 
@@ -26,12 +25,11 @@ class mailService {
    * @param {Number} id -- Order id
    */
   async sendCheckoutEmail(/* userEmail, id */) {
-    const template = await composeCheckoutEmail(/*id*/ 24); //Not remove await keyword here
     return axios.post("http://localhost:3000/api/mail", {
       fromEmail: "sales@iustaad.com",
       toEmail: "to@mail.com" /* userEmail,*/,
       subject: "Your order has been placed 🎉",
-      message: template,
+      message: composeCheckoutEmail(/*usename ,id*/ "Minhaj", 24),
     });
   }
 
@@ -41,17 +39,15 @@ class mailService {
    * @param {Number} id -- Order id
    */
   async DemoClassEmail(/* userEmail, id */) {
-    const template = await composeDemoClassEmail(/*id*/ 65); //Not remove await keyword here
     return axios.post("http://localhost:3000/api/mail", {
       fromEmail: "sales@iustaad.com",
       toEmail: "to@mail.com" /* userEmail,*/,
       subject: "Demo Class Request",
-      message: template,
+      message: composeDemoClassEmail(/*id*/ "Minhaj", 65),
     });
   }
 
   async ContactFormEmail(userEmail, name) {
-    console.log(name);
     return axios.post("http://localhost:3000/api/mail", {
       fromEmail: "helpdesk@iustaad.com",
       toEmail: userEmail,
