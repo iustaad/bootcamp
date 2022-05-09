@@ -3,11 +3,12 @@ import { Formik, Form } from "formik";
 //Yup is used for form validation
 import * as Yup from "yup";
 //moodle service used for handel HTTP request
-import moodleService from "../Services/moodleService";
+import moodleService from "../Services/moodleServiceLogin";
 //TextField component is used for generate input fields
 import { TextField } from "../components/TextField";
 // styles used for styling of this component
 import styles from "../styles/login.module.css";
+import Link from "next/link";
 // handle http request
 import user from "../services/user";
 
@@ -59,10 +60,11 @@ export default function Login() {
                   name="password"
                   type="password"
                 />
-
-                <button className={styles.button} type="submit">
-                  Login
-                </button>
+                <Link href="/dashboard">
+                  <button className={styles.button} type="submit">
+                    Login
+                  </button>
+                </Link>
               </Form>
             </div>
           </div>
