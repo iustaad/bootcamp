@@ -11,12 +11,17 @@ class mailService {
    * @param {Number} token -- token to be sent to the user
    */
   async passwordResetEmail(/* userEmail, resetToken */) {
-    return axios.post("http://localhost:3000/api/mail", {
-      fromEmail: "helpdesk@iustaad.com",
-      toEmail: "userEmail@email.com" /* userEmail,*/,
-      subject: "Password Reset Request 🔑",
-      message: composePassReset(/*username, resetToken */ "Minhaj", "12345"),
-    });
+    try {
+      const res = await axios.post("http://localhost:3000/api/mail", {
+        fromEmail: "helpdesk@iustaad.com",
+        toEmail: "userEmail@email.com" /* userEmail,*/,
+        subject: "Password Reset Request 🔑",
+        message: composePassReset(/*username, resetToken */ "Minhaj", "12345"),
+      });
+      console.log(res.data);
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   /**
@@ -25,12 +30,17 @@ class mailService {
    * @param {Number} id -- Order id
    */
   async sendCheckoutEmail(/* userEmail, id */) {
-    return axios.post("http://localhost:3000/api/mail", {
-      fromEmail: "sales@iustaad.com",
-      toEmail: "to@mail.com" /* userEmail,*/,
-      subject: "Your order has been placed 🎉",
-      message: composeCheckoutEmail(/*usename ,id*/ "Minhaj", 24),
-    });
+    try {
+      const res = await axios.post("http://localhost:3000/api/mail", {
+        fromEmail: "sales@iustaad.com",
+        toEmail: "to@mail.com" /* userEmail,*/,
+        subject: "Your order has been placed 🎉",
+        message: composeCheckoutEmail(/*usename ,id*/ "Minhaj", 24),
+      });
+      console.log(res.data);
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   /**
@@ -39,21 +49,31 @@ class mailService {
    * @param {Number} id -- Order id
    */
   async DemoClassEmail(/* userEmail, id */) {
-    return axios.post("http://localhost:3000/api/mail", {
-      fromEmail: "sales@iustaad.com",
-      toEmail: "to@mail.com" /* userEmail,*/,
-      subject: "Demo Class Request",
-      message: composeDemoClassEmail(/*id*/ "Minhaj", 65),
-    });
+    try {
+      const res = await axios.post("http://localhost:3000/api/mail", {
+        fromEmail: "sales@iustaad.com",
+        toEmail: "to@mail.com" /* userEmail,*/,
+        subject: "Demo Class Request",
+        message: composeDemoClassEmail(/*id*/ "Minhaj", 65),
+      });
+      console.log(res.data);
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   async ContactFormEmail(userEmail, name) {
-    return axios.post("http://localhost:3000/api/mail", {
-      fromEmail: "helpdesk@iustaad.com",
-      toEmail: userEmail,
-      subject: "Thank you for contacting us",
-      message: composeContactFormEmail(name),
-    });
+    try {
+      const res = await axios.post("http://localhost:3000/api/mail", {
+        fromEmail: "helpdesk@iustaad.com",
+        toEmail: userEmail,
+        subject: "Thank you for contacting us",
+        message: composeContactFormEmail(name),
+      });
+      console.log(res.data);
+    } catch (err) {
+      console.log(err);
+    }
   }
 }
 
