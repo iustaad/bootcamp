@@ -1,4 +1,4 @@
-export function composeDemoClassEmail(username, id) {
+export default function composeDemoClassEmail(username, id) {
   return `<!doctype html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
 
@@ -154,7 +154,7 @@ export function composeDemoClassEmail(username, id) {
                       <td align="left" style="font-size:0px;padding:10px 25px;padding-right:25px;padding-left:25px;word-break:break-word;">
                         <div style="font-family:open Sans Helvetica, Arial, sans-serif;font-size:14px;line-height:1;text-align:left;color:#000000;">
                           <h4>Hi ${username},</h4>
-                          <p>We have received your request. Our coordinator will contact you. you cna use the below tracking number for you request.${id}</p>
+                          <p>We have received your request. Our coordinator will contact you. you can use the below tracking number for you request.<br/><br/> Tracking number: ${id}</p>
                         </div>
                       </td>
                     </tr>

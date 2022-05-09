@@ -1,7 +1,7 @@
 import axios from "axios";
-import { composeCheckoutEmail } from "../components/composeEmail/composeCheckoutEmail";
-import { composeDemoClassEmail } from "../components/composeEmail/composeDemoClassEmail";
-import { composePassReset } from "../components/composeEmail/composePassReset";
+import composeCheckoutEmail from "../components/composeEmail/composeCheckoutEmail";
+import composeDemoClassEmail from "../components/composeEmail/composeDemoClassEmail";
+import composePassReset from "../components/composeEmail/composePassReset";
 import composeContactFormEmail from "../components/composeEmail/composeContactFormEmail";
 
 class mailService {
