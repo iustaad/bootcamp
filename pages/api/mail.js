@@ -1,37 +1,39 @@
-const nodemailer = require("nodemailer");
-
 export default function handler(req, res) {
-  const { fromEmail, toEmail, subject, message } = req.body;
+  const { username, fromEmail, toEmail, tamplateId } = req.body;
 
-  // create reusable transporter object using the default SMTP transport (configured in .env.local)
-  const transporter = nodemailer.createTransport({
-    host: "smtp.ethereal.email",
-    port: process.env.BOOTCAMP_MAIL_PORT,
-    auth: {
-      user: process.env.BOOTCAMP_MAIL_USER,
-      pass: process.env.BOOTCAMP_MAIL_PASS,
-    },
+  const mailjet = require("node-mailjet").connect(
+    process.env.MAILJET_API_KEY,
+    process.env.MAILJET_SECRET_KEY
+  );
+  const request = mailjet.post("send", { version: "v3.1" }).request({
+    Messages: [
+      {
+        From: {
+          Email: "helpdesk@iustaad.com",
+          Name: "iUstaad Team",
+        },
+        To: [
+          {
+            Email: toEmail,
+            Name: username,
+          },
+        ],
+        TemplateID: tamplateId,
+        TemplateLanguage: true,
+        Data: {
+          name: username,
+        },
+        Variables: {},
+      },
+    ],
   });
-
-  const mailOptions = {
-    from: fromEmail,
-    to: toEmail,
-    subject,
-    html: message,
-  };
-
-  // send mail with defined transport object
-  transporter.sendMail(mailOptions, (error, info) => {
-    if (error) {
-      res.status(500).json({
-        message: "Error sending email",
-        error,
-      });
-    } else {
-      res.status(200).json({
-        message: "Email sent",
-        info,
-      });
-    }
-  });
+  request
+    .then((result) => {
+      console.log(result.body.Messages[0].Status);
+      res.status(200).json(result.body);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(err.statusCode).json(err.body);
+    });
 }
